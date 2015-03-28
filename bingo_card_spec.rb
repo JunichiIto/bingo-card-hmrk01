@@ -2,7 +2,7 @@
 
 class Bingo
   def self.generate_card
-    numbers = (1..75).each_slice(15).to_a.map{|numbers| numbers.sample(5) }.transpose
+    numbers = (1..75).each_slice(15).map{|numbers| numbers.sample(5) }.transpose
     numbers[2][2] = nil
     header = 'BINGO'.chars.map{|s| ' ' + s }.join(' | ')
     body = numbers.map{|cols| cols.map{|col| col.to_s.rjust(2) } }.map{|cols| cols.join(' | ') }.join("\n")
