@@ -5,8 +5,12 @@ class Bingo
     numbers = (1..75).each_slice(15).map{|numbers| numbers.sample(5) }.transpose
     numbers[2][2] = nil
     header = 'BINGO'.chars.map{|s| ' ' + s }.join(' | ')
-    body = numbers.map{|cols| cols.map{|col| col.to_s.rjust(2) } }.map{|cols| cols.join(' | ') }.join("\n")
+    body = numbers.map{|cols| format_cols(cols) }.map{|cols| cols.join(' | ') }.join("\n")
     header + "\n" + body
+  end
+
+  def self.format_cols(col)
+    cols.map{|col| col.to_s.rjust(2) }
   end
 end
 
