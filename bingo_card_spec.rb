@@ -6,14 +6,13 @@ class Bingo
     numbers[2][2] = nil
     body = numbers
                .map{|cols| format_cols(cols) }
-               .map{|cols| cols.join(' | ') }
                .join("\n")
-    header = 'BINGO'.chars.map{|s| ' ' + s }.join(' | ')
+    header = format_cols('BINGO'.chars)
     header + "\n" + body
   end
 
   def self.format_cols(cols)
-    cols.map{|col| col.to_s.rjust(2) }
+    cols.map{|col| col.to_s.rjust(2) }.join(' | ')
   end
 end
 
