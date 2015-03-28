@@ -12,7 +12,7 @@ class Bingo
     header + "\n" + body
   end
 
-  def self.format_cols(col)
+  def self.format_cols(cols)
     cols.map{|col| col.to_s.rjust(2) }
   end
 end
