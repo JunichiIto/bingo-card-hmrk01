@@ -4,11 +4,9 @@ class Bingo
   def self.generate_card
     numbers = (1..75).each_slice(15).map{|numbers| numbers.sample(5) }.transpose
     numbers[2][2] = nil
-    body = numbers
-               .map{|cols| format_cols(cols) }
-               .join("\n")
+    body = numbers.map{|cols| format_cols(cols) }
     header = format_cols('BINGO'.chars)
-    header + "\n" + body
+    [header, body].join("\n")
   end
 
   def self.format_cols(cols)
